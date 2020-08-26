@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <!--<link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css'%}"/>-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>E-Learning WebApp - {% block title %}Welcome!{% endblock %}</title>
+    </head>
+    <body>
+        <div>
+            <h1>{% block myhdg %}Hello
+                {% if request.session.username %}
+                    {{ request.session.first_name }} {{ request.session.last_name }}
+                {% else %}
+                    User
+                {% endif %}
+            {% endblock %}</h1>
+        <hr/>
+            {% block body_block %}*** {% endblock %}
+        </div>
+        <hr/>
+        <div>
+            <!--<ul>
+                <li class="hbar1"><a href="{% url 'myapp:about' %}">About our ELearning site</a></li>
+                <li class="hbar1"><a href = "{% url 'myapp:index' %}">Return to main page</a></li>
+                <li class="hbar1"><a href = "{% url 'myapp:courses' %}">List of courses</a></li>
+            </ul>-->
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item"><a href="{% url 'myapp:about' %}">About our ELearning site</a></li>
+                <li class="list-group-item"><a href = "{% url 'myapp:index' %}">Return to main page</a></li>
+                <li class="list-group-item"><a href = "{% url 'myapp:courses' %}">List of courses</a></li>
+            </ul>
+         </div>
+        <hr/>
+        <div>
+            {% if request.session.username %}
+               <!--<ul>
+                    <li class="hbar1"><a href="{% url 'myapp:myaccount' %}">My Account</a></li>
+                    <li class="hbar1"><a href = "{% url 'myapp:user_logout' %}">Logout</a></li>
+                </ul>-->
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"><a href="{% url 'myapp:myaccount' %}">My Account</a></li>
+                    <li class="list-group-item"><a href = "{% url 'myapp:user_logout' %}">Logout</a></li>
+                </ul>
+            {% else %}
+                <!--<ul>
+                    <li class="hbar1"><a href="{% url 'myapp:register' %}">Register Here</a></li>
+                    <li class="hbar1"><a href = "{% url 'myapp:user_login' %}">Login</a></li>
+                </ul>-->
+                <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item"><a href="{% url 'myapp:register' %}">Register Here</a></li>
+                    <li class="list-group-item"><a href = "{% url 'myapp:user_login' %}">Login</a></li>
+                </ul>
+            {% endif %}
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+ </body>
+</html>

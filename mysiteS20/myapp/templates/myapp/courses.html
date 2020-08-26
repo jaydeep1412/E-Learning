@@ -1,0 +1,17 @@
+{% extends 'myapp/base.html' %}
+{% block body_block %}
+    {% if courlist %}
+        <h2>List of Courses:</h2>
+        <ol>
+            {% for cor in courlist %}
+            <!--<li> {{ cor.name }} </li>-->
+            <li><a href="{% url 'myapp:cour_no' cor.id %}"> {{ cor.name }} </a></li>
+                <p></p>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <strong>There are no available topics!</strong>
+    {% endif %}
+    <!--<p><a href="about">About Page</a></p>-->
+    <a href="{% url 'myapp:place_order' %}">Place a Order</a>
+{% endblock %}

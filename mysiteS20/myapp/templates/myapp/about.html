@@ -1,0 +1,10 @@
+{% extends 'myapp/base.html' %}
+{% block body_block %}
+    <p>This is an E-learning Website! Search our Topics to find all available Courses.</p>
+    <p>Number of times user visited this page: {{ request.COOKIES.about_visits }}</p>
+    <!--{% if request.COOKIES.about_visits %}
+        <p>Number of times user visited this page: {{ request.COOKIES.about_visits }}</p>
+    {% endif %}-->
+    <!--<p><a href="">Index Page</a></p>
+    <a href="{% url 'myapp:index' %}">Index Page</a>-->
+{% endblock %}

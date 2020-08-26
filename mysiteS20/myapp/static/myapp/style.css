@@ -1,0 +1,18 @@
+.hbar1 {
+ display: inline;
+ margin: 15px;
+}
+body{
+    background-color: aliceblue;
+}
+h1{
+    color: black;
+    font-size: x-large;
+    position: relative;
+    font-style: normal;
+}
+li,p{
+    font-size: larger;
+    font-family: "Roboto";
+}
+
